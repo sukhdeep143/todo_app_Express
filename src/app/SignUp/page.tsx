@@ -18,7 +18,7 @@ function SignUp() {
 
   const onSubmitForm =  (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/register", {formData}).then( response => console.log(response)).catch(error =>console.log(error))
+    axios.post("http://localhost:5000/register", formData).then( response => console.log(response)).catch(error =>console.log(error))
    
   };
 
