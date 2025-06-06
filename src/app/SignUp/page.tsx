@@ -23,13 +23,13 @@ function SignUp() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-200 flex items-center justify-center">
+    <div className="rounded-2xl bg-slate-200 flex items-center justify-center">
       <form
         action=""
         onSubmit={onSubmitForm}
         className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-6 text-red-700 text-center">Sign Up</h2>
         <div className="mb-4">
           <label htmlFor="name" className="block font-semibold mb-1">
             Name
@@ -76,7 +76,7 @@ function SignUp() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full bg-red-600  text-white py-2 rounded hover:bg-blue-700"
         >
           Sign Up
         </button>
