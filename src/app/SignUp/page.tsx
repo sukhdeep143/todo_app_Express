@@ -5,6 +5,8 @@ import axios from "axios";
 
 
 function SignUp() {
+  const [message, setMessage] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,11 +18,27 @@ function SignUp() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onSubmitForm =  (e) => {
+  const onSubmitForm = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/register", formData).then( response => console.log(response)).catch(error =>console.log(error))
-   
-  };
+   try {
+    const response = await axios.post("http://localhost:5000/register", formData);
+    console.log(response.data);
+
+    // Show success message
+    setMessage("✅ User created successfully!");
+
+    // Clear the form
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+    });
+
+  } catch (error) {
+    console.error("Error creating user:", error);
+    setMessage("❌ Error: Could not create user.");
+  }
+};
 
   return (
     <div className="rounded-2xl bg-slate-200 flex items-center justify-center">
@@ -80,6 +98,10 @@ function SignUp() {
         >
           Sign Up
         </button>
+
+        {message && (
+  <p className="text-center text-green-600 font-semibold mb-4">{message}</p>
+)}
       </form>
     </div>
   );
