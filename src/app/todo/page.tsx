@@ -1,7 +1,9 @@
 export default function T0do(){
     return(
         <div>
-            to do 
+            <h1>title</h1>
+            <input type="text" />
+            <button>Add task</button>
         </div>
     )
 }
